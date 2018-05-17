@@ -26,8 +26,7 @@ after_script:
   - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址        - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
   - cd .deploy_git   
   - git remote -v             
-  - cp -Rf ./public/* ./.deploy_git
-  - cd ./.deploy_git   
+  - cp -Rf ../public/* ../.deploy_git
   - git status 
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
