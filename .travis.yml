@@ -23,10 +23,11 @@ script:
 
 after_script:
   - rm -rf .deploy_git
+  - mkdir .deploy_git
   - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
   - cd .deploy_git
   - git checkout master
-  - cp ./public/* ./.deploy_git
+  - cp -Rf ./public/* ./.deploy_git
   - cd ./.deploy_git
   - git config user.name "ZadaWu"  #修改name
   - git config user.email "zada.wu@gmail.com"  #修改email
