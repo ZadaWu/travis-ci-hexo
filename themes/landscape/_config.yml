@@ -10,9 +10,6 @@ fancybox: true
 
 # Sidebar
 sidebar: right
-avatar: https://avatars1.githubusercontent.com/u/10525939?s=40&v=4
-author: 大大虾
-description: To be a better girl.
 widgets:
 - category
 - tag
