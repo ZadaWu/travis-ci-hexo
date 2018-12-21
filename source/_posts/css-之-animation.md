@@ -1,6 +1,6 @@
 ---
 title: css 之 animation, transform
-date: 2018-12-20 18:08:00
+date: 2018-12-21 18:08:00
 tags: css
 ---
 
@@ -32,7 +32,7 @@ annimation配合keyframes一起用
 
 * animation-name  动画name
 * animation-duration 一个动画周期的时长，单位为秒(s)或者毫秒(ms)
-* animation-timing-function 定义CSS动画在每一动画周期中执行的节奏 ease／ease-in／ease-out／linear
+* animation-timing-function 定义CSS动画在每一动画周期中执行的节奏 ease／ease-in／ease-out／linear [贝塞尔曲线原理](https://www.jianshu.com/p/d999f090d333) [贝塞尔曲线对比](http://cubic-bezier.com/#.25,.1,.25,1)
 * animation-delay 定义动画于何时开始，即从动画应用在元素上到动画开始的这段时间的长度。
 * animation-iteration-count 循环次数
 * animation-direction 属性指示动画是否反向播放 normal／reverse／alternate／alternate-reverse
