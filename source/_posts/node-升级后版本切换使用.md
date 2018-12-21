@@ -24,7 +24,7 @@ sudo npm install -g n
 sudo n stable
 ```
 
-### 你可以查看你的版本好
+### 你可以查看你的版本号
 ``` bash
 node -v
 ```
