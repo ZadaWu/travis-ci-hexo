@@ -103,8 +103,17 @@ ctx = execjs.compile("""
 """)
 ctx.call("domstrToArray", " <li class=\"posttype clearfix por\" data-pid=\"100420545\" data-type=\"article\">\n            <div class=\"fl title\">\n                <div class=\"date\">\n                    2018-12-13 18:44                <\/div>\n                \n                                    <div class=\"type\">\n                        \u5df2\u53d1\u5e03                                            <\/div>\n                            <\/div>\n                                                    <div class=\"curp posttype-wrap \" data-href=\"http:\/\/t.10jqka.com.cn\/pid_100420545.shtml\" data-statid=\"sns_work_index.feed.article\">\n\n                <div class=\"fl content mt40\">\n                    <div class=\"cw-content-live\">\n                        <div class=\"cw-live-title fl\">\n                                                            <img class=\"articalCover\" src=\"https:\/\/u.thsi.cn\/imgsrc\/sns\/10220929f365aa8011748d5ed84908a9_667_500_small.png\" alt=\"\">\n                                                    <\/div>\n                        <div class=\"cw-live-content fl ml20\">\n                            <h3>\u9ec4\u5b8f\u98de\uff1a\u9a6c\u4e91\u90fd\u5f00\u59cb\u589e\u6301\u5f71\u89c6\u4e1a\u4e86\uff0c\u6295\u8d44\u5f71\u89c6\u80a1\u6709\u4e24\u5927\u5999\u62db\uff01<\/h3>\n                            <p>\u9a6c\u4e91\u90fd\u5f00\u59cb\u589e\u6301\u5f71\u89c6\u4e1a\u4e86\uff0c\u6295\u8d44\u5f71\u89c6\u80a1\u6709\u4e24\u5927\u5999\u62db\uff01<\/p>\n                        <\/div>\n                    <\/div>\n                    <div class=\"cw-item-bottom\">\n                        <span class=\"hotkey\" data-key=\"sns_post_100420545\"><i>0<\/i>\u9605\u8bfb<\/span>\n                        <span>23\u70b9\u8d5e<\/span>\n                        <span>1\u8bc4\u8bba<\/span>\n                    <\/div>\n                <\/div>\n            <\/div>\n            <div class=\"js-share-group poa fz12 hide\" data-valid=\"1\"><i class=\"share-group-icons cw-share-in dib\"><\/i><span>\u5206\u4eab<\/span><\/div>\n        <\/li>")
 
-我原以为会很顺利，但是运行下来报错：execjs._exceptions.ProgramError: ReferenceError: document is not defined
+我原以为会很顺利，但是运行下来报错：
+execjs._exceptions.ProgramError: ReferenceError: document is not defined
 
 因为execjs仅支持js运算，但是js里面的内置的document这些并不支持，所以我只能自己写个后端接口来再python中调用从而来实现这个功能。心累，想哭。
+
+然后我用的是koa框架，用node跑接口的时候发现也是同样的报错：
+ ReferenceError: document is not defined
+
+上StackOverflow上发现：
+JavaScript doesn't have a default document global. Browsers provide one, but your Node.js code doesn't run in a browser, it runs in the Node.js environment (e.g., as an application on your workstation, or as a server process, etc.).
+
+To run the code you've shown, you'd include your .js file in a page by using a script tag in the HTML, typically at the end of body just before the closing </body> tag:
 
 
