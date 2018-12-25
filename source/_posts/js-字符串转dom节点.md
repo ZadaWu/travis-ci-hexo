@@ -116,4 +116,36 @@ JavaScript doesn't have a default document global. Browsers provide one, but you
 
 To run the code you've shown, you'd include your .js file in a page by using a script tag in the HTML, typically at the end of body just before the closing </body> tag:
 
+最后在同事的提示下，用了python中的BeautifulSoup库，用起来真的是6666！
+
+Demo:
+    # 通过url获取评论
+    `
+    def getCommandByUrl( pid):
+        url = "http://t.10jqka.com.cn/pid_" + pid + ".shtml"
+
+        headers = {'cache-control': 'no-cache'}
+
+        _content = Fetcher.fetch_page_sync_get(url, headers, {},
+                                               {'table': '', 'channel': ''})
+        soup = BeautifulSoup(_content.text, 'html')
+        for li in soup.find_all('li', class_='single-comment'):
+            _tmp_comment = []
+            userid = li.find_all('div', class_='commenter-name')[0].find_all('a')[0].get('href').split('/')[3]
+            username = li.find_all('div', class_='commenter-name')[0].get_text().lstrip().rstrip()
+            date = li.find_all('span', class_='comment-time')[0].get_text().lstrip().rstrip()
+            text = li.find_all('div', class_='comment-text')[0].get_text().lstrip().rstrip()
+            comment_order = li.find_all('span', class_='comment-order')[0].get_text().lstrip().rstrip()
+            reply_count = len(li.find_all('div', class_='existed-reply-container'))
+            _tmp_comment.append(userid)
+            _tmp_comment.append(username)
+            _tmp_comment.append(text)
+            _tmp_comment.append(date)
+            _tmp_comment.append(comment_order)
+            _tmp_comment.append(reply_count)
+            _tmp_comment.append(pid)
+            self._db_table_datas['values'].append(_tmp_comment)
+        pass
+        `
+
 
