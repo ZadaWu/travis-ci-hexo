@@ -39,3 +39,4 @@ annimation配合keyframes一起用
 * animation-fill-mode 用来指定在动画执行之前和之后如何给动画的目标应用样式。 none／forwards／backwards／both／应用多个none, backwards／应用多个both, forwards, none
 
 
+
