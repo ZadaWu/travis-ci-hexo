@@ -36,3 +36,36 @@ CSS提供align-items属性以沿着交叉轴对齐flex项。对于一行，它�
 * baseline: 将项目与其基线对齐。基线是一个文本概念，将其视为字母所在的行。
 
 
+### flex-wrap
+它告诉CSS包装项目。这意味着额外的项目将移动到新的行或列中。包装发生的断点取决于物品的大小和容器的大小。使用场景，可以用来list的item排列
+
+* nowrap: 这是默认设置，不包装项目，会挤压项目，原来的宽度/高度会受影响。
+* wrap: 如果项目在一行中，则从左到右包装，如果它们在列中，则从上到下包装。
+* wrap-reverse:如果项目在一行中，则从下到上包装项目;如果它们在列中，则从右到左包装。
+
+
+### flex-shrink
+之上的属性都是用来父级元素，当它被使用时，如果flex容器太小，它允许物品收缩。当父容器的宽度小于其中所有flex项的组合宽度时，项会收缩。lex-shrink属性将数字作为值。数字越大，与容器中的其他项目相比，它将缩小得越多。
+比如说：本来都是width100%的box，如果一个为1，一个为2，则为1的宽度为2的2倍
+
+### flex-grow
+与flex-shrink属性对立。当容器缩小时，flex-shrink控制项目的大小。当父容器展开时，flex-grow属性控制项的大小。数字越大,宽度越宽
+比如说：本来都是width未设置的box，如果一个为1，一个为2，则为1的宽度为2的1/2
+
+### flex-basis
+flex-basis属性指定CSS在使用flex-shrink或flex-grow进行调整之前的项的初始大小
+
+### 属性缩写
+有一个快捷方式可以同时设置多个flex属性。通过使用flex属性，可以将flex-grow，flex-shrink和flex-basis属性设置在一起。
+例如，flex：1 0 10px;将项目设置为flex-grow：1;，flex-shrink：0;和flex-basis：10px;。
+
+
+### order
+使用order属性重新排列项目
+order大的顺序排列在前面
+
+### align-self
+此属性允许您单独调整每个项目的对齐方式，而不是一次性设置它们。这很有用，因为使用CSS属性float，clear和vertical-align的其他常见调整技术对flex项不起作用。
+align-self接受与align-items相同的值，并将覆盖align-items属性设置的任何值。
+
+
