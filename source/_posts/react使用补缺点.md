@@ -43,4 +43,13 @@ and what I do is I actually spread {...props.match.params} because then on TestW
 }
 `
 
+## 安装ionic
+npx cap add  ios
+npx cap open ios
+打开运行报错 error: /Users/zhangmingwu/Downloads/work/react-mikegolf/ios/App/Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig: unable to open file (in target "App" in project "App") (in target 'App')
+
+解决方案: https://www.jianshu.com/p/b2f391ba0287
+
+npx cap sync 
+
 

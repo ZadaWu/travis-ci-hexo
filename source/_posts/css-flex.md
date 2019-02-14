@@ -20,10 +20,21 @@ Adding display: flex to an element turns it into a flex container. This makes it
 justify-content属性沿着主轴对齐flex项目。对于行，主轴是水平线，对于列，它是垂直线。
 
 * justify-content: center 元素靠中对齐
-* justify-content: flex-start 元素靠左排列显示,顺序不变
+* 
+ 元素靠左排列显示,顺序不变
 * justify-content: flex-end  元素靠右排列显示,顺序不变
 * justify-content: space-between 元素靠两边显示，最左右不留空隙，中间等比出来，可以分成n等分
-* justify-content: space-around 元素靠两边显示，最左右留空隙，中间等比出来，可以分成n等分
+* justify-content: space-around 元素靠两边显示，最左右留一半空隙，中间等比出来，可以分成n等分
+* justify-content: space-evenly 元素靠两边显示，最左右留一整个空隙，中间等比出来，可以分成n等分
+
+### align-content
+决定行与行之间隔多远：
+flex-start: 多行都集中在顶部。
+flex-end: 多行都集中在底部。
+center: 多行居中。
+space-between: 行与行之间保持相等距离。
+space-around: 每行的周围保持相等距离。
+stretch: 每一行都被拉伸以填满容器。
 
 ### align-items
 Flex容器还具有与主轴相反的横轴。对于行，横轴是垂直的，对于列，横轴是横向。
