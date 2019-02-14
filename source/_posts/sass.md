@@ -5,9 +5,9 @@ tags:
 ---
 
 ## 变量的声明与使用
-`$main-fonts: Arial, sans-serif;
+`
+$main-fonts: Arial, sans-serif;
 $headings-color: green;
-
 //To use variables:
 h1 {
   font-family: $main-fonts;
@@ -48,12 +48,7 @@ div {
     .text-#{$j} { font-size: 10px*$j; }
   }
 </style>
-
-<p class="text-1">Hello</p>
-<p class="text-2">Hello</p>
-<p class="text-3">Hello</p>
-<p class="text-4">Hello</p>
-<p class="text-5">Hello</p>`
+`
 
 ## map遍历指令的使用
 在每次迭代时，变量将从列表或映射分配给当前值。
@@ -79,7 +74,7 @@ div {
 }`
 
 ## 引用变量文件_mixins.scss
-@import 'mixins'
+`@import 'mixins'`
 
 ##将一组CSS样式扩展到另一个元素
 例如，下面的CSS规则块为.panel类设置样式。它有背景颜色，高度和边框。
