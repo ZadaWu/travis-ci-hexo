@@ -5,5 +5,8 @@ tags: [js, 正则]
 ---
 
 ## 去掉首尾空格
-`osfipin.replace(/(^\s*)|(\s*$)/g, "");`
+
+```
+osfipin.replace(/(^\s*)|(\s*$)/g, "");
+```
 

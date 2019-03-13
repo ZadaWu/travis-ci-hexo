@@ -7,7 +7,9 @@ tags: [js]
 最近在尝试爬取一个网页的数据时，与一般的json格式活着直接返回网页不同，他请求返回的事dom字符串，偷懒先用jquey整理出来的逻辑如下：
 
 ## jquery
-`function domstrToArray(str) {
+
+```
+function domstrToArray(str) {
     var domArr = $(str);
     var result = [];
     for(var i = 0 ; i < domArr.length; i++){
@@ -25,28 +27,41 @@ tags: [js]
         }
     }
     return result;
-}`
+}
+```
 
 
 ## 原生
 
 ### 如果将字符串转为dom节点
 1. document.createRange().createContextualFragment:
-   ` let frag = document.createRange().createContextualFragment('<div>One</div><div>Two</div>');
-    console.log(frag);`
+   
+```
+let frag = document.createRange().createContextualFragment('<div>One</div><div>Two</div>');
+```
+ 后面查询节点的可以用：
+   
+
+```
+let firstDiv = frag.querySelector('div');
+let allDivs = frag.querySelectorAll('div');
+```
     
-    后面查询节点的可以用：
-    `let firstDiv = frag.querySelector('div');
-     let allDivs = frag.querySelectorAll('div');
-    `
     
 2. DOMParser
-    `let doc = new DOMParser().parseFromString('<div><b>Hello!</b></div>', 'text/html');`
+    
+```
+let doc = new DOMParser().parseFromString('<div><b>Hello!</b></div>', 'text/html');
+```
     后面查询节点可以用：
-    `let divs = doc.body.querySelectorAll('div');`
-
+    
+```
+let divs = doc.body.querySelectorAll('div');
+```
 代码如下：
-`function domstrToArray(str) {
+
+```
+function domstrToArray(str) {
     var dom = document.createRange().createContextualFragment(str);
     var domArr = dom.querySelectorAll('.posttype');
     var result = [];
@@ -62,16 +77,22 @@ tags: [js]
         result.push(tmpObj);
     }
 	return result;
-}`
+}
+```
 
 
 ## python 中执行nodejs
 PyExecJS
 
 1. 安装
- pip install PyExecJS 
+ 
+```
+pip install PyExecJS 
+```
  
 2. 调用小测试
+
+```
 import execjs
 ctx = execjs.compile("""
    function add(x, y) {
@@ -79,8 +100,11 @@ ctx = execjs.compile("""
    }
 """)
 ctx.call("add", 1, 2)
+```
 
 3. 本案例
+
+```
 import execjs
 ctx = execjs.compile("""
    function domstrToArray(str) {
@@ -102,6 +126,7 @@ ctx = execjs.compile("""
 }
 """)
 ctx.call("domstrToArray", eleDomStr)
+```
 
 我原以为会很顺利，但是运行下来报错：
 execjs._exceptions.ProgramError: ReferenceError: document is not defined
@@ -112,6 +137,7 @@ execjs._exceptions.ProgramError: ReferenceError: document is not defined
  ReferenceError: document is not defined
 
 上StackOverflow上发现：
+
 JavaScript doesn't have a default document global. Browsers provide one, but your Node.js code doesn't run in a browser, it runs in the Node.js environment (e.g., as an application on your workstation, or as a server process, etc.).
 
 To run the code you've shown, you'd include your .js file in a page by using a script tag in the HTML, typically at the end of body just before the closing </body> tag:
@@ -120,8 +146,10 @@ To run the code you've shown, you'd include your .js file in a page by using a s
 
 Demo:
     # 通过url获取评论
-    `
-    def getCommandByUrl( pid):
+    
+    
+```
+def getCommandByUrl( pid):
         url = "http://t.10jqka.com.cn/pid_" + pid + ".shtml"
 
         headers = {'cache-control': 'no-cache'}
@@ -146,6 +174,7 @@ Demo:
             _tmp_comment.append(pid)
             self._db_table_datas['values'].append(_tmp_comment)
         pass
-        `
+        
+```
 
 

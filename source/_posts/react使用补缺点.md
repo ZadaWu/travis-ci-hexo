@@ -6,15 +6,26 @@ tags:
 
 ## router与component属性结合使用时，如何传参数[参考链接](https://github.com/ReactTraining/react-router/issues/4105)
 
-1. `<Route exact path={"/"} component={() => <Start socket={socket} addUser={addUser}/>}/>`
-    这个解决方案是相当于自定义组件
-    类似的：
-    `<Route path="/abc" render={()=><TestWidget num="2" someProp={100}/>}/>`
-    
-2. `<Route exact path="/abc" render={props => <TestWidget someProp="2" {...props} />} />`
+1. 自定义组件
 
+```
+<Route exact path={"/"} component={() => <Start socket={socket} addUser={addUser}/>}/>
+```
+
+这个解决方案是相当于、
+类似的： 
+ 
+```
+<Route path="/abc" render={()=><TestWidget num="2" someProp={100}/>}/>
+```
+    
+2.在组件中获取路由的参数 
+
+```
+<Route exact path="/abc" render={props => <TestWidget someProp="2" {...props} />} />
+```
 and what I do is I actually spread {...props.match.params} because then on TestWidget you can access the URL parameters with just this.props.urlVariableHere.
-这个解决方案是站在组件中获取路由的参数
+这个解决方案是在组件中获取路由的参数
 
 
 ## 如何复用组件[参考链接](https://react-cn.github.io/react/docs/reusable-components.html)
@@ -32,7 +43,9 @@ and what I do is I actually spread {...props.match.params} because then on TestW
 
 
 ## 具体属性改变时，采取重新渲染，使用shouldComponentUpdate
-`shouldComponentUpdate(nextProps, nextState) {
+
+```
+shouldComponentUpdate(nextProps, nextState) {
     if (this.props.color !== nextProps.color) {
       return true;
     }
@@ -41,15 +54,21 @@ and what I do is I actually spread {...props.match.params} because then on TestW
     }
     return false;
 }
-`
+```
+
 
 ## 安装ionic
+
+```
 npx cap add  ios
 npx cap open ios
+```
 打开运行报错 error: /Users/zhangmingwu/Downloads/work/react-mikegolf/ios/App/Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig: unable to open file (in target "App" in project "App") (in target 'App')
 
 解决方案: https://www.jianshu.com/p/b2f391ba0287
 
-npx cap sync 
+```
+npx cap sync
+``` 
 
 

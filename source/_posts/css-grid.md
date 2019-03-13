@@ -10,10 +10,13 @@ example: dislplay:grid;
 
 ### grid-template-columns
 除了设置display,还需要定义网格的结构。要向网格添加一些列，请在网格容器上使用grid-template-columns属性，如下所示：
-```.container {
+
+```
+.container {
   display: grid;
   grid-template-columns: 50px 50px;
-}```
+}
+```
 
 给grid-template-columns属性的参数数量表示网格中的列数，每个参数的值表示每列的宽度。
 一行设置3个div宽度为100px：
@@ -38,12 +41,13 @@ px表示多宽
 #### 使用auto-fill创建灵活布局（可以考虑用来做六部剧）
 重复功能带有一个名为自动填充的选项。这允许您根据容器的大小自动插入所需大小的行或列。将auto-fill与minmax组合时，可以创建灵活的布局。如果您的容器无法在一行中容纳所有项目，则会将其移动到新行。
 当容器改变大小时，此设置将继续插入60px列并拉伸它们，直到它可以插入另一个：
-`
+
+```
 display: grid;
 repeat(auto-fill, minmax(60px, 1fr));
 grid-template-rows: 1fr 1fr 1fr;
 grid-gap: 10px;
-`
+```
 
 #### 使用auto-fit 创建灵活布局
 auto-fit几乎与auto-fill相同。唯一的区别是当容器的大小超过所有项目组合的大小时，auto-fill会一直插入空行或列，并将项目推向一边，而auto-fit会折叠这些空行或列并拉伸项目以适合容器的大小。
@@ -69,25 +73,38 @@ n个元素都会按照这个样式每行如此现实
 
 ### grid-column-gap
 到目前为止，在你创建的网格中，列都相互紧密相连。有时您希望列之间存在间隙。要在列之间添加间隙，请使用grid-column-gap属性，如下所示三行三列每列中间有10px的间隙：
-```grid-template-columns: 1fr 1fr 1fr;
+
+```
+grid-template-columns: 1fr 1fr 1fr;
 grid-template-rows: 1fr 1fr 1fr;
-grid-column-gap: 10px;```
+grid-column-gap: 10px;
+```
 
 ### grid-column-row
 类似于grid-column-gap，用与设置每行的间隙。
 
 ### grid-gap
 可以同时设置行列的gap，在行之间引入10px间隙，在列之间引入20px间隙：
-```grid-gap: 10px 20px;```
+
+```
+grid-gap: 10px 20px;
+```
 
 ### grid-column
 到目前为止，所讨论的所有属性都是针对网格容器的。 grid-column属性是第一个用于网格项本身的属性。
 创建网格的假设水平和垂直线称为线。这些线在网格的左上角从1开始编号，向右移动列，向下移动行，向上计数。
 
 要控制项目将使用的列数，您可以将grid-column属性与您希望项目开始和停止的行号一起使用，这将使项目从左侧网格的第一个垂直线开始，并跨越到网格的第3行，消耗该行的第一个和第二个格子：
-```grid-column: 1 / 3;```
+
+```
+grid-column: 1 / 3;
+```
+
 消耗第二个和第三个：
-```grid-column: 2 / 4;```
+
+```
+grid-column: 2 / 4;
+```
 
 ### grid-row
 当然，您可以像使用列一样使项目消耗多行。您可以使用网格项上的网格行属性定义项目开始和停止的水平线。
@@ -121,10 +138,13 @@ grid-column-gap: 10px;```
 ### grid-template-areas
 您可以将网格的单元格组合到一个区域中，并为该区域指定一个自定义名称。通过在容器上使用grid-template-areas来执行此操作,代码中的每个单词代表一个单元格，每对引号代表一行。 除自定义标签外，您还可以使用句点（.）指定网格中的空单元格。
 前三个单元格合并为一个名为header的区域，将底部三个单元格合并为一个页脚区域，并在中间行中生成两个区域;广告和内容。如下所示：
-`grid-template-areas:
+
+```
+grid-template-areas:
   "header header header"
   "advert content content"
-  "footer footer footer";`
+  "footer footer footer";
+```
   
   
 ### grid-area 配合 grid-template-areas使用
@@ -136,7 +156,10 @@ grid-column-gap: 10px;```
 如果您的网格没有要引用的区域模板，您可以动态创建一个区域，以便放置一个项目，如下所示：
 `item1 { grid-area: 1/1/2/4; }`
 这是使用您之前了解的行号来定义此项目的区域。上例中的数字代表以下值：
-`grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;`
+
+```
+grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;
+```
 解读：示例中的项目将使用第1行和第2行之间的行以及第1行和第4行之间的行。
   
   
