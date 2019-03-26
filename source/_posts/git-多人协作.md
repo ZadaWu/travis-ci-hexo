@@ -35,8 +35,23 @@ C.切到video分支上，合并最新的test和master代码,拉最新的video代
 *     git branch -d dev
 *     git push origin video
 ```
+这种操作流程存在的问题：
+1. 上一个需求在发布前，新需求代码不能合并到test上面测试
+2. test合并到master上面，master自动发布，是有问题的，master应该是手动发布的
+3. 多人协作可能会出现相互merge改了代码而且别人不知道的情况，这种情况应该暴露出来
 
-## 正确的做法
+但是，由于test分支的代码直接merge到master分支上是不可靠不靠谱的，因此之后老大定下来test分支永远不能合并到master分支上，具体可以看以下：
+
+## 新的流程总结下：
+
+ 1.pull master 在本地master切开发分支feat1
+ 2.feat1开发
+ 3.切test，merge feat1 --squash 可能会有冲突，注意不要将test代码带入feat1
+ 4.在feat1 改bug , 切test merge feat1 --squash 
+ 5.切master ，merge feat1 --squash
+ 6.pull或fetch master，解决冲突
+ 7.push origin master
+ 8.预生产回归，发布正式
 
 
 
