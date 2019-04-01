@@ -55,3 +55,6 @@ C.切到video分支上，合并最新的test和master代码,拉最新的video代
 
 
 
+## ps
+[git merge -squash 介绍 ](https://www.cnblogs.com/lookphp/p/5799533.html)
+
