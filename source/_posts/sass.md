@@ -1,7 +1,7 @@
 ---
 title: sass
 date: 2019-02-14 11:05:21
-tags:
+tags: css
 ---
 
 ## 变量的声明与使用

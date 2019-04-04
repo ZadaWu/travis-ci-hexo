@@ -1,7 +1,7 @@
 ---
 title: react
 date: 2019-02-14 11:30:10
-tags:
+tags: 前端
 ---
 ## 创建一个简单的jsx
 简介：React是由Facebook创建和维护的开源视图库。它是渲染现代Web应用程序的用户界面（UI）的绝佳工具。

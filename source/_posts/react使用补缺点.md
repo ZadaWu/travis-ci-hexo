@@ -1,7 +1,7 @@
 ---
 title: V4.0 react使用补缺点
 date: 2019-01-14 14:56:36
-tags:
+tags: 前端
 ---
 
 ## router与component属性结合使用时，如何传参数[参考链接](https://github.com/ReactTraining/react-router/issues/4105)
