@@ -58,3 +58,7 @@ C.切到video分支上，合并最新的test和master代码,拉最新的video代
 ## ps（经过测试后从本地分支把代码同步到生产分支）
 [git merge -squash 介绍 ](https://www.cnblogs.com/lookphp/p/5799533.html)
 
+
+原型有问题的地方：
+
+
